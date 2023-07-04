@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>My Weather App</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <style>
+        body {
+            background-image: url('bg.png');
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-info shadow-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Weather App ⛅</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About this App</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Asansol</a></li>
+                            <li><a class="dropdown-item" href="#">Kolkata</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Delhi</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link">Usage Guide</a>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input id="city" class="form-control me-2 border-dark" type="search" placeholder="Search"
+                        aria-label="Search">
+                    <button class="btn btn-outline-dark border-dark" type="submit" id="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <h1 class="my-4 text-center ">Today's Weather ⛅</h1>
+        <main>
+            <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+                <div class="col">
+                    <div class="card mb-4 rounded-3 bg-dark text-light shadow-lg border-dark">
+                        <div class="card-header py-3 bg-info">
+                            <h4 class="my-0 fw-normal text-dark ">Temperatures</h4>
+                        </div>
+                        <div class="card-body">
+                            <h1 class="card-title pricing-card-title"><span id="temp"></span><small
+                                    class="text-body-light fw-light"> &#8451</small></h1>
+                            <ul class="list-unstyled mt-3 mb-4 ">
+
+                                <li>Min Temperature is: <span id="min_temp"></span></li>
+                                <li>Max Temperature is: <span id="max_temp"></span></li>
+
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card mb-4 rounded-3 bg-dark text-light shadow-lg border-dark">
+                        <div class="card-header py-3 bg-info">
+                            <h4 class="my-0 fw-normal text-dark">Humidity Info</h4>
+                        </div>
+                        <div class="card-body">
+                            <h1 class="card-title pricing-card-title"><span id="humidity"></span><small
+                                    class="text-body-light fw-light"> %</small></h1>
+                            <ul class="list-unstyled mt-3 mb-4">
+                                <li>Wind Degree is: <span id="wind_degrees"></span></li>
+                                <li>Feels Like: <span id="feels_like"></span></li>
+
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card mb-4 rounded-3 bg-dark text-light shadow-lg border-dark">
+                        <div class="card-header py-3 bg-info">
+                            <h4 class="my-0 fw-normal text-dark ">Wind Info</h4>
+                        </div>
+                        <div class="card-body">
+                            <h1 class="card-title pricing-card-title"><span id="wind_speed"></span><small
+                                    class="text-light fw-light"> Km/Hr</small></h1>
+                            <ul class="list-unstyled mt-3 mb-4">
+
+                                <li>Sunrise Time is: <span id="sunrise"></span></li>
+                                <li>Sunset Time is: <span id="sunset"></span></li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="display-6 text-center mb-4 ">Weather of other common places</h2>
+
+            <div class="table-responsive card mb-4 rounded-3 bg-info shadow-lg border-dark">
+                <table class="table text-center bg-info ">
+                    <thead>
+                        <tr>
+                            <th style="width: 22%;" class="bg-info">City</th>
+                            <th style="width: 22%;" class="bg-info">Cloud_pct</th>
+                            <th style="width: 22%;" class="bg-info">Temp</th>
+                            <th style="width: 22%;" class="bg-info">Feels_like</th>
+                            <th style="width: 22%;" class="bg-info">Humidity</th>
+                            <th style="width: 22%;" class="bg-info">Min_temp</th>
+                            <th style="width: 22%;" class="bg-info">Max_temp</th>
+                            <th style="width: 22%;" class="bg-info">Wind_speed</th>
+                            <th style="width: 22%;" class="bg-info">Wind_degrees</th>
+                            <th style="width: 22%;" class="bg-info">Sunrise</th>
+                            <th style="width: 22%;" class="bg-info">Sunset</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row " class="text-start bg-info">Chennai</th>
+                            <td class="bg-dark text-light">25</td>
+                            <td class="bg-dark text-light">33 &#8451</td>
+                            <td class="bg-dark text-light">30 &#8451</td>
+                            <td class="bg-dark text-light">40 %</td>
+                            <td class="bg-dark text-light">40 %</td>
+                            <td class="bg-dark text-light">40 %</td>
+                            <td class="bg-dark text-light">40</td>
+                            <td class="bg-dark text-light">53</td>
+                            <td class="bg-dark text-light">1688528653</td>
+                            <td class="bg-dark text-light">1687848653</td>
+                            <td class="bg-dark text-light"><svg class="bi" width="24" height="24">
+                                    <use xlink:href="#check"></use>
+                                </svg></td>
+                            <td class="bg-dark text-light"><svg class="bi" width="24" height="24">
+                                    <use xlink:href="#check"></use>
+                                </svg></td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="text-start bg-info">Patna</th>
+                            <td class="bg-dark text-light">22</td>
+                            <td class="bg-dark text-light">29 &#8451</td>
+                            <td class="bg-dark text-light">30 &#8451</td>
+                            <td class="bg-dark text-light">42 %</td>
+                            <td class="bg-dark text-light">40 %</td>
+                            <td class="bg-dark text-light">40 %</td>
+                            <td class="bg-dark text-light">41</td>
+                            <td class="bg-dark text-light">51</td>
+                            <td class="bg-dark text-light">1488428653</td>
+                            <td class="bg-dark text-light">1498828653</td>
+                            <td class="bg-dark text-light"><svg class="bi" width="24" height="24">
+                                    <use xlink:href="#check"></use>
+                                </svg></td>
+                            <td class="bg-dark text-light"><svg class="bi" width="24" height="24">
+                                    <use xlink:href="#check"></use>
+                                </svg></td>
+                        </tr>
+                    </tbody>
+
+                    <tbody>
+                        <tr>
+                            <th scope="row" class="text-start bg-info">Lucknow</th>
+                            <td class="bg-dark text-light">21</td>
+                            <td class="bg-dark text-light">30 &#8451</td>
+                            <td class="bg-dark text-light">30 &#8451</td>
+                            <td class="bg-dark text-light">40 %</td>
+                            <td class="bg-dark text-light">44 %</td>
+                            <td class="bg-dark text-light">44 %</td>
+                            <td class="bg-dark text-light">40</td>
+                            <td class="bg-dark text-light">55</td>
+                            <td class="bg-dark text-light">1589428653</td>
+                            <td class="bg-dark text-light">1587428653</td>
+                            <td class="bg-dark text-light"><svg class="bi" width="24" height="24">
+                                    <use xlink:href="#check"></use>
+                                </svg></td>
+                            <td class="bg-dark text-light"><svg class="bi" width="24" height="24">
+                                    <use xlink:href="#check"></use>
+                                </svg></td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="text-start bg-info">Banaras</th>
+                            <td class="bg-dark text-light">29</td>
+                            <td class="bg-dark text-light">38 &#8451</td>
+                            <td class="bg-dark text-light">30 &#8451</td>
+                            <td class="bg-dark text-light">40 %</td>
+                            <td class="bg-dark text-light">42 %</td>
+                            <td class="bg-dark text-light">42 %</td>
+                            <td class="bg-dark text-light">40</td>
+                            <td class="bg-dark text-light">59</td>
+                            <td class="bg-dark text-light">1888428653</td>
+                            <td class="bg-dark text-light">1823428653</td>
+                            <td class="bg-dark text-light"><svg class="bi" width="24" height="24">
+                                    <use xlink:href="#check"></use>
+                                </svg></td>
+                            <td class="bg-dark text-light"><svg class="bi" width="24" height="24">
+                                    <use xlink:href="#check"></use>
+                                </svg></td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="text-start bg-info">Kashmir</th>
+                            <td class="bg-dark text-light">23</td>
+                            <td class="bg-dark text-light">34 &#8451</td>
+                            <td class="bg-dark text-light">30 &#8451</td>
+                            <td class="bg-dark text-light">40 %</td>
+                            <td class="bg-dark text-light">30 %</td>
+                            <td class="bg-dark text-light">30 %</td>
+                            <td class="bg-dark text-light">40</td>
+                            <td class="bg-dark text-light">58</td>
+                            <td class="bg-dark text-light">1978428653</td>
+                            <td class="bg-dark text-light">1923428653</td>
+                            <td class="bg-dark text-light"><svg class="bi" width="24" height="24">
+                                    <use xlink:href="#check"></use>
+                                </svg></td>
+                            <td class="bg-dark text-light"><svg class="bi" width="24" height="24">
+                                    <use xlink:href="#check"></use>
+                                </svg></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
